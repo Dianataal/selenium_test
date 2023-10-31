@@ -3,8 +3,8 @@ README
 Eesmärk: testida Google.com lehte ja näha kas otsingusõna kirjutades tuleb tulemus
 
 1. Google lehele minek
-Toiming: otsinguribale sisestatakse https://www.google.ee/
-Oodatav tulemus: avaneb eesti keelne Google avaleht
+Toiming: otsinguribale sisestatakse https://www.google.com/
+Oodatav tulemus: avaneb Google avaleht
 
 2. Märksõna otsinguribale
 Toiming: Otsinguribale sisestatakse märksõna "samoyed"

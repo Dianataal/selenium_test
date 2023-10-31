@@ -1,36 +1,51 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import time
+from selenium.common.exceptions import NoSuchElementException
 
-# Create a new instance of the Chrome driver
+
+# Sulgeb pop-upi
+def click_decline_all(driver):
+    try:
+        decline_button = driver.find_element(By.ID, "W0wltc")
+        decline_button.click()
+    except NoSuchElementException:
+        print("Didn't find the button")
+        pass
+
+# Otsime samoyedi
+def search(search_box):
+    driver.implicitly_wait(2)
+    search_box.send_keys("samoyed")
+    print("wrote")
+
+
+def enter(search_box):
+    search_box.send_keys(Keys.RETURN)
+    print("tried to enter")
+
+# kas sõna on otsingus
+def check_word_in_results(driver, word):
+    try:
+        result = driver.find_element(By.XPATH, f"//*[contains(text(), '{word}')]")
+        return True
+    except NoSuchElementException:
+        return False
+
 driver = webdriver.Chrome()
+driver.get('https://www.google.com')
+click_decline_all(driver)
+search_box = driver.find_element(By.ID, "APjFqb")
+search(search_box)
+driver.implicitly_wait(5)
+enter(search_box)
+driver.implicitly_wait(5)
 
-# Step 1: Go to Google homepage
-driver.get("https://www.google.ee/")
-assert "Google" in driver.title  
+if check_word_in_results(driver, "samoyed"):
+    print("That's one nice boy.")
+else:
+    print("No dogs allowed.")
 
-# Step 2: Enter the keyword "samoyed" in the search bar
-search_box = driver.find_element(By.NAME, "q")
-search_box.send_keys("samoyed")
-search_box.send_keys(Keys.RETURN)
+driver.implicitly_wait(5)
 
-# Step 3: Wait for search results to load (adjust the sleep duration if needed)
-time.sleep(2)  
-
-# Step 4: Click on the "Images" tab
-images_tab = driver.find_element(By.XPATH, "//a[text()='Pildid']")
-images_tab.click()
-
-# Step 5: Wait for images to load (adjust the sleep duration if needed)
-time.sleep(2)
-
-# Step 6: Click on the first image related to "samoyed"
-first_image = driver.find_element(By.CSS_SELECTOR, "div[data-ri='0'] a")
-first_image.click()
-
-# Wait for a few seconds to see the opened image (adjust the sleep duration)
-time.sleep(5)
-
-# Close the browser window
 driver.quit()

@@ -14,10 +14,6 @@ Oodatav tulemus: otsinguribale tuleb sõna "samoyed"
 Toiming: Viiakse läbi märksõna otsing
 Oodatav tulemus: tulevad otsingu tulemused
 
-4. Piltide vaatamine
-Toiming: Valida "pildid" ribalt
-Oodatav tulemus: Avanevad pildid märksõna "samoyed" kohta
-
-5. Avada pilt Samoyedist
-Toiming: Leida esimene pilt millel on märksõna "samoyed" ja avada see
-Oodatav tulemus: avaneb pilt samoyed koeraga
+4. Otsingu tulemuste analüüs 
+Toiming: Otsitakse tulemustest märksõna "samoyed"
+Oodatav tulemus: Samoyed leiti ja tuleb vastav kiri
